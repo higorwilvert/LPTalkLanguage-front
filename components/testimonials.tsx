@@ -50,24 +50,20 @@ const TestimonialsSection = () => {
               key={index}
               className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 relative"
             >
-              {/* Quote Icon */}
               <div className="absolute top-4 right-4 text-blue-200">
                 <Quote className="w-8 h-8" />
               </div>
 
-              {/* Stars */}
               <div className="flex space-x-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
-              {/* Testimonial Text */}
               <p className="text-gray-700 mb-6 italic leading-relaxed">
                 "{testimonial.text}"
               </p>
 
-              {/* Profile */}
               <div className="flex items-center">
                 <div className="text-3xl mr-4">
                   {testimonial.image}

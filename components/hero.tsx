@@ -47,7 +47,6 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <Button 
                 onClick={() => scrollToSection('contato')}
@@ -66,7 +65,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Hero Image/Illustration */}
           <div className="relative animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <div className="relative bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <div className="bg-white rounded-2xl p-6 space-y-4">
@@ -105,7 +103,6 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Floating Elements */}
             <div className="absolute -top-4 -left-4 bg-yellow-400 rounded-full w-12 h-12 flex items-center justify-center shadow-lg animate-bounce">
               <Trophy className="w-6 h-6 text-white" />
             </div>

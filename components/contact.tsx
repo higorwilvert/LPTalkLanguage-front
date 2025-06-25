@@ -18,7 +18,6 @@ export default function Contact() {
 
   const [loading, setLoading] = useState(false);
 
-  // 🔗 Função para envio do formulário
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -48,8 +47,6 @@ export default function Contact() {
     <section id="contato" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-
-          {/* 🏷️ Cabeçalho */}
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-blue-100 text-blue-800 px-4 py-2">
               Entre em Contato
@@ -62,10 +59,7 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* 📝 Formulário e Informações */}
           <div className="grid lg:grid-cols-2 gap-12">
-
-            {/* 🔥 Formulário */}
             <div>
               <Card className="border-0 shadow-2xl rounded-3xl">
                 <CardHeader>
@@ -78,7 +72,6 @@ export default function Contact() {
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Nome e Telefone */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -105,7 +98,6 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    {/* E-mail */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         E-mail <span className="text-red-500">*</span>
@@ -120,7 +112,6 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* Mensagem */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Mensagem
@@ -133,7 +124,6 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* Botão */}
                     <Button
                       type="submit"
                       disabled={loading}
@@ -151,7 +141,6 @@ export default function Contact() {
               </Card>
             </div>
 
-            {/* 📍 Informações */}
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -159,7 +148,6 @@ export default function Contact() {
                 </h3>
 
                 <div className="space-y-6">
-                  {/* E-mail */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                       <Mail className="h-6 w-6 text-blue-600" />
@@ -171,7 +159,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Telefone */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <Phone className="h-6 w-6 text-green-600" />
@@ -183,7 +170,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Endereço */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                       <MapPin className="h-6 w-6 text-purple-600" />
@@ -197,7 +183,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Box Extra */}
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6">
                 <h4 className="font-bold text-gray-900 mb-3">💡 Dica Especial</h4>
                 <p className="text-gray-600 text-sm">

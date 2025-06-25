@@ -25,7 +25,6 @@ const Header = () => {
             />
           </div>
 
-          {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
@@ -66,7 +65,6 @@ const Header = () => {
             Comece Agora Gratuitamente
           </Button>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2"
@@ -75,7 +73,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-100">
             <nav className="flex flex-col space-y-4 pt-4">
