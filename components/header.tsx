@@ -1,94 +1,126 @@
-"use client"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-const navItems = [
-  { name: "Início", href: "#home" },
-  { name: "Sobre", href: "#about" },
-  { name: "Projetos", href: "#projects" },
-  { name: "Habilidades", href: "#skills" },
-  { name: "Contato", href: "#contact" },
-]
-
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ${
-        scrolled ? "bg-[#141E33]/90 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
-    >
-      <div className="container-section flex items-center justify-between">
-        <Link href="#home" className="flex items-center">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo_fundo_personalizado-8TfKCqvMZMUq5kJJeeB3p1z115qW2e.png"
-            alt="Higor Wilvert Logo"
-            width={40}
-            height={40}
-            className="transition-transform hover:scale-110"
-          />
-        </Link>
+    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <img 
+              src="/talk-logo.png" 
+              alt="Talk Language" 
+              className="h-10 w-auto"
+            />
+          </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item, i) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-[#141E33]/95 backdrop-blur-md shadow-lg"
-        >
-          <nav className="flex flex-col py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="px-6 py-3 text-white/80 hover:text-white hover:bg-white/5"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+              Home
+            </button>
+            <button 
+              onClick={() => scrollToSection('beneficios')}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            >
+              Benefícios
+            </button>
+            <button 
+              onClick={() => scrollToSection('como-funciona')}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            >
+              Como Funciona
+            </button>
+            <button 
+              onClick={() => scrollToSection('idiomas')}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            >
+              Idiomas
+            </button>
+            <button 
+              onClick={() => scrollToSection('contato')}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            >
+              Contato
+            </button>
           </nav>
-        </motion.div>
-      )}
+
+          <Button 
+            onClick={() => scrollToSection('contato')}
+            className="hidden md:inline-flex bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            Comece Agora Gratuitamente
+          </Button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-gray-100">
+            <nav className="flex flex-col space-y-4 pt-4">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => scrollToSection('beneficios')}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
+              >
+                Benefícios
+              </button>
+              <button 
+                onClick={() => scrollToSection('como-funciona')}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
+              >
+                Como Funciona
+              </button>
+              <button 
+                onClick={() => scrollToSection('idiomas')}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
+              >
+                Idiomas
+              </button>
+              <button 
+                onClick={() => scrollToSection('contato')}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
+              >
+                Contato
+              </button>
+              <Button 
+                onClick={() => scrollToSection('contato')}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-full font-semibold mt-4 w-full"
+              >
+                Comece Agora Gratuitamente
+              </Button>
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
-  )
-}
+  );
+};
+
+export default Header;

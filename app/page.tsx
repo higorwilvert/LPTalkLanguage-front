@@ -3,12 +3,12 @@
 import { useEffect } from "react"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
-import About from "@/components/about"
-import Projects from "@/components/projects"
-import Skills from "@/components/skills"
+import Benefits from "@/components/benefits"
+import HowItWorks from "@/components/howItWorks"
+import Languages from "@/components/languages"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
-import Experience from "@/components/experience"
+import Testimonials from "@/components/testimonials"
 
 export default function Home() {
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Home() {
     }
 
     window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial check
+    handleScroll() 
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -35,10 +35,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Experience />
+      <Benefits />
+      <HowItWorks />
+      <Languages />
+      <Testimonials />
       <Contact />
       <Footer />
     </main>

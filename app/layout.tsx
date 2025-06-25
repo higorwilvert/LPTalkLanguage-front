@@ -6,8 +6,12 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Higor Wilvert | Desenvolvedor",
-  description: "Desenvolvedor focado em soluções eficientes e interfaces modernas",
+  title: "Talk Language",
+  keywords: ["idiomas", "aprendizado", "cursos", "linguagens", "educação"],
+  authors: [{ name: "Talk Language", url: "https://talklanguage.com.br" }],
+  creator: "Talk Language",
+  description:
+    "Talk Language - Aprenda idiomas de forma fácil e divertida. Cursos online com professores nativos, material didático completo e suporte 24/7.",
 }
 
 export default function RootLayout({
